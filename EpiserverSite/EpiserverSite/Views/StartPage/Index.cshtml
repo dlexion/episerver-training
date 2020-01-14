@@ -1,0 +1,15 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model EpiserverSite.Models.Pages.StartPage
+
+<div>
+    @Html.LabelFor(m => m.Robots)<br />
+    @Html.PropertyFor(m => m.Robots)
+    <br />
+    @Html.LabelFor(m => m.OpenGraphTitle)<br />
+    @Html.PropertyFor(m => m.OpenGraphTitle)
+    <br />
+    @Html.LabelFor(m => m.OpenGraphMedia)<br />
+    @Html.DisplayFor(m => m.OpenGraphMedia)
+</div>
