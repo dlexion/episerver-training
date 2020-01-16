@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using EPiServer;
-using EPiServer.Core;
-using EPiServer.Framework.DataAnnotations;
+﻿using System.Web.Mvc;
 using EPiServer.Web.Mvc;
 using EpiserverSite.Models.Pages;
+using EpiserverSite.Models.ViewModels;
 
 namespace EpiserverSite.Controllers
 {
@@ -13,7 +9,7 @@ namespace EpiserverSite.Controllers
     {
         public ActionResult Index(ArticlePage currentPage)
         {
-            return View(currentPage);
+            return View(new ArticlePageViewModel(currentPage));
         }
     }
 }

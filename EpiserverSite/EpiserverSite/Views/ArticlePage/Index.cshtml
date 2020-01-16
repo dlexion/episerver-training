@@ -1,18 +1,20 @@
 ﻿@using EPiServer.Core
 @using EPiServer.Web.Mvc.Html
 
-@model EpiserverSite.Models.Pages.ArticlePage
+@model EpiserverSite.Models.ViewModels.ArticlePageViewModel
 
-<div>
-    @Html.LabelFor(m => m.Robots)<br />
-    @Html.PropertyFor(m => m.Robots)
-    <br />
-    @Html.LabelFor(m => m.OpenGraphTitle)<br />
-    @Html.PropertyFor(m => m.OpenGraphTitle)
-    <br />
-    @Html.LabelFor(m => m.OpenGraphMedia)<br />
-    @Html.DisplayFor(m => m.OpenGraphMedia)
-    <br />
-    @Html.LabelFor(m => m.MainBody)<br />
-    @Html.PropertyFor(m => m.MainBody)
-</div>
+    <div>
+        @Html.LabelFor(m => m.CurrentPage.Robots)<br />
+        @Html.PropertyFor(m => m.CurrentPage.Robots)<br />
+
+        @Html.LabelFor(m => m.CurrentPage.OpenGraphTitle)<br />
+        @Html.PropertyFor(m => m.CurrentPage.OpenGraphTitle)<br />
+
+        @Html.LabelFor(m => m.CurrentPage.OpenGraphMedia)<br />
+        @Html.DisplayFor(m => m.CurrentPage.OpenGraphMedia)<br />
+
+        @Html.LabelFor(m => m.CurrentPage.MainBody)<br />
+        @Html.PropertyFor(m => m.CurrentPage.MainBody)<br />
+
+        @Html.TranslateFallback("/tinymce/editorstyles/paragraph", "blablabla")
+    </div>

@@ -1,15 +1,15 @@
 ﻿@using EPiServer.Core
 @using EPiServer.Web.Mvc.Html
 
-@model EpiserverSite.Models.Pages.StartPage
+@model EpiserverSite.Models.ViewModels.StartPageViewModel
 
-<div>
-    @Html.LabelFor(m => m.Robots)<br />
-    @Html.PropertyFor(m => m.Robots)
-    <br />
-    @Html.LabelFor(m => m.OpenGraphTitle)<br />
-    @Html.PropertyFor(m => m.OpenGraphTitle)
-    <br />
-    @Html.LabelFor(m => m.OpenGraphMedia)<br />
-    @Html.DisplayFor(m => m.OpenGraphMedia)
-</div>
+    <div>
+        @Html.LabelFor(m => m.CurrentPage.Robots)<br />
+        @Html.PropertyFor(m => m.CurrentPage.Robots)
+        <br />
+        @Html.LabelFor(m => m.CurrentPage.OpenGraphTitle)<br />
+        @Html.PropertyFor(m => m.CurrentPage.OpenGraphTitle)
+        <br />
+        @Html.LabelFor(m => m.CurrentPage.OpenGraphMedia)<br />
+        @Html.DisplayFor(m => m.CurrentPage.OpenGraphMedia)
+    </div>

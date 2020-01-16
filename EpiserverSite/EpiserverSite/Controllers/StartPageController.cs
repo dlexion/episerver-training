@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using EPiServer.Web.Mvc;
 using EpiserverSite.Models.Pages;
+using EpiserverSite.Models.ViewModels;
 
 namespace EpiserverSite.Controllers
 {
@@ -8,7 +9,7 @@ namespace EpiserverSite.Controllers
     {
         public ActionResult Index(StartPage currentPage)
         {
-            return View(currentPage);
+            return View(new StartPageViewModel(currentPage));
         }
     }
 }
