@@ -6,6 +6,16 @@ namespace EpiserverSite.Models.ViewModels
     {
         public ArticlePageViewModel(ArticlePage currentPage) : base(currentPage)
         {
+            UpdateModel = new AddUpdateArticlePageViewModel()
+            {
+                Robots = currentPage.Robots,
+                OpenGraphTitle = currentPage.OpenGraphTitle,
+                MainBody = currentPage.MainBody,
+                Parent = currentPage.ParentLink,
+                CurrentPageId = currentPage.ContentLink.ID
+            };
         }
+
+        public AddUpdateArticlePageViewModel UpdateModel { get; set; }
     }
 }

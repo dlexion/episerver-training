@@ -3,13 +3,13 @@
 
 @model EpiserverSite.Models.ViewModels.StartPageViewModel
 
-    <div>
-        @Html.LabelFor(m => m.CurrentPage.Robots)<br />
-        @Html.PropertyFor(m => m.CurrentPage.Robots)
-        <br />
-        @Html.LabelFor(m => m.CurrentPage.OpenGraphTitle)<br />
-        @Html.PropertyFor(m => m.CurrentPage.OpenGraphTitle)
-        <br />
-        @Html.LabelFor(m => m.CurrentPage.OpenGraphMedia)<br />
-        @Html.DisplayFor(m => m.CurrentPage.OpenGraphMedia)
-    </div>
+<div>
+    @Html.LabelFor(m => m.CurrentPage.Robots)<br />
+    @Html.PropertyFor(m => m.CurrentPage.Robots)<br />
+
+    @Html.LabelFor(m => m.CurrentPage.OpenGraphTitle)<br />
+    @Html.PropertyFor(m => m.CurrentPage.OpenGraphTitle)<br />
+
+    @Html.LabelFor(m => m.CurrentPage.OpenGraphMedia)<br />
+    @Html.DisplayFor(m => m.CurrentPage.OpenGraphMedia)
+</div>
