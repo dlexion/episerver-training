@@ -6,7 +6,7 @@ using EPiServer.ServiceLocation;
 using EpiserverSite.Models.Pages;
 using EpiserverSite.Models.ViewModels;
 
-namespace EpiserverSite.Business
+namespace EpiserverSite.Business.UpdatePage
 {
     public class UpdateArticlePageService : UpdatePageService<AddUpdateArticlePageViewModel, ArticlePage>
     {

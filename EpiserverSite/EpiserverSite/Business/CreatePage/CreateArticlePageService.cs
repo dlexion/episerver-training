@@ -6,7 +6,7 @@ using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using EpiserverSite.Models.Pages;
 
-namespace EpiserverSite.Business
+namespace EpiserverSite.Business.CreatePage
 {
     public class CreateArticlePageService : CreatePageService<ArticlePage>
     {

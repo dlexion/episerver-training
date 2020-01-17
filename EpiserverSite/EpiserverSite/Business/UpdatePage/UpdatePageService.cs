@@ -1,8 +1,7 @@
-﻿using EpiserverSite.Business.UpdatePage;
-using EpiserverSite.Models;
+﻿using EpiserverSite.Models;
 using EpiserverSite.Models.Pages;
 
-namespace EpiserverSite.Business
+namespace EpiserverSite.Business.UpdatePage
 {
     public abstract class UpdatePageService<TUpdateModel, TUpdatedPage>
         : IUpdatePageService<TUpdateModel, TUpdatedPage>
