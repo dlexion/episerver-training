@@ -1,5 +1,4 @@
 ﻿using EPiServer.Core;
-using EpiserverSite.Models.Pages;
 
 namespace EpiserverSite.Models.ViewModels
 {

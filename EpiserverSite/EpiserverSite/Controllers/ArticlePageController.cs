@@ -1,7 +1,9 @@
 ﻿using System.Net;
 using System.Web.Mvc;
+using EPiServer.ServiceLocation;
 using EPiServer.Web.Mvc;
-using EpiserverSite.Business;
+using EpiserverSite.Business.CreatePage;
+using EpiserverSite.Business.UpdatePage;
 using EpiserverSite.Models.Pages;
 using EpiserverSite.Models.ViewModels;
 
@@ -9,13 +11,14 @@ namespace EpiserverSite.Controllers
 {
     public class ArticlePageController : PageController<ArticlePage>
     {
-        private readonly CreatePageService<ArticlePage> _createPageService;
-        private readonly UpdatePageService<AddUpdateArticlePageViewModel, ArticlePage> _updateArticlePageService;
+        private readonly ICreatePageService<ArticlePage> _createArticlePageService;
+        private readonly IUpdatePageService<AddUpdateArticlePageViewModel, ArticlePage> _updateArticlePageService;
 
         public ArticlePageController()
         {
-            _createPageService = new CreateArticlePageService();
-            _updateArticlePageService = new UpdateArticlePageService();
+            _createArticlePageService = ServiceLocator.Current.GetInstance<ICreatePageService<ArticlePage>>();
+            _updateArticlePageService = ServiceLocator.Current.
+                GetInstance<IUpdatePageService<AddUpdateArticlePageViewModel, ArticlePage>>();
         }
 
         public ActionResult Index(ArticlePage currentPage)
@@ -33,7 +36,7 @@ namespace EpiserverSite.Controllers
                 return View("Index", new ArticlePageViewModel(updatedPage));
             }
 
-            if (!string.IsNullOrEmpty(model.PageName) && _createPageService.TryCreate(model.PageName, model.Parent, out var newPage))
+            if (!string.IsNullOrEmpty(model.PageName) && _createArticlePageService.TryCreate(model.PageName, model.Parent, out var newPage))
             {
                 model.CurrentPageId = newPage.ContentLink.ID;
                 if (_updateArticlePageService.TryUpdate(model, out var updatedPage))

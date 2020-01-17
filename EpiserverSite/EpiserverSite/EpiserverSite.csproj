@@ -216,13 +216,17 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
-    <Compile Include="Business\CreateArticlePageService.cs" />
-    <Compile Include="Business\CreatePageService.cs" />
+    <Compile Include="Business\CreatePage\CreateArticlePageService.cs" />
+    <Compile Include="Business\CreatePage\CreatePageService.cs" />
+    <Compile Include="Business\CreatePage\ICreatePageService.cs" />
     <Compile Include="Business\Filters\PageContextActionFilter.cs" />
     <Compile Include="Business\Initialization\CustomTinyMceInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
-    <Compile Include="Business\UpdateArticlePageService.cs" />
-    <Compile Include="Business\UpdatePageService.cs" />
+    <Compile Include="Business\Initialization\StructureMapSetUp.cs" />
+    <Compile Include="Business\StructureMapDependencyResolver.cs" />
+    <Compile Include="Business\UpdatePage\IUpdatePageService.cs" />
+    <Compile Include="Business\UpdatePage\UpdateArticlePageService.cs" />
+    <Compile Include="Business\UpdatePage\UpdatePageService.cs" />
     <Compile Include="Controllers\ArticlePageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Global.asax.cs">
