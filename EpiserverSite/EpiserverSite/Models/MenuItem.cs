@@ -9,5 +9,10 @@ namespace EpiserverSite.Models
         public string Link { get; set; }
 
         public IList<MenuItem> SubItems { get; set; }
+
+        public MenuItem()
+        {
+            SubItems = new List<MenuItem>();
+        }
     }
 }

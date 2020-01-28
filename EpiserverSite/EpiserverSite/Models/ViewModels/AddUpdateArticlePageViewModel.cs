@@ -2,7 +2,7 @@
 
 namespace EpiserverSite.Models.ViewModels
 {
-    public class AddUpdateArticlePageViewModel : IUpdateModel
+    public class AddUpdateArticlePageViewModel : IUpdateBasePageModel
     {
         public virtual string Robots { get; set; }
 
@@ -16,6 +16,6 @@ namespace EpiserverSite.Models.ViewModels
 
         public ContentReference Parent { get; set; }
 
-        public int CurrentPageId { get; set; }
+        public ContentReference CurrentPageId { get; set; }
     }
 }

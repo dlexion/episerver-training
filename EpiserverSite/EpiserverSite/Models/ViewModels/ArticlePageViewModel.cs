@@ -12,7 +12,7 @@ namespace EpiserverSite.Models.ViewModels
                 OpenGraphTitle = currentPage.OpenGraphTitle,
                 MainBody = currentPage.MainBody,
                 Parent = currentPage.ParentLink,
-                CurrentPageId = currentPage.ContentLink.ID
+                CurrentPageId = currentPage.ContentLink
             };
         }
 

@@ -1,9 +1,7 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using EPiServer.ServiceLocation;
 using EPiServer.Web.Mvc;
-using EpiserverSite.Business.CreatePage;
-using EpiserverSite.Business.UpdatePage;
+using EpiserverSite.Business.Services;
 using EpiserverSite.Models.Pages;
 using EpiserverSite.Models.ViewModels;
 
@@ -11,14 +9,11 @@ namespace EpiserverSite.Controllers
 {
     public class ArticlePageController : PageController<ArticlePage>
     {
-        private readonly ICreatePageService<ArticlePage> _createArticlePageService;
-        private readonly IUpdatePageService<AddUpdateArticlePageViewModel, ArticlePage> _updateArticlePageService;
+        private readonly IPageService<ArticlePage, AddUpdateArticlePageViewModel> _pageService;
 
-        public ArticlePageController()
+        public ArticlePageController(IPageService<ArticlePage, AddUpdateArticlePageViewModel> pageService)
         {
-            _createArticlePageService = ServiceLocator.Current.GetInstance<ICreatePageService<ArticlePage>>();
-            _updateArticlePageService = ServiceLocator.Current.
-                GetInstance<IUpdatePageService<AddUpdateArticlePageViewModel, ArticlePage>>();
+            _pageService = pageService;
         }
 
         public ActionResult Index(ArticlePage currentPage)
@@ -28,20 +23,19 @@ namespace EpiserverSite.Controllers
 
         [ValidateInput(false)]
         public ActionResult Update(AddUpdateArticlePageViewModel model)
-        {
+         {
             if (model.UpdatePage)
             {
-                _updateArticlePageService.TryUpdate(model, out var updatedPage);
-
-                return View("Index", new ArticlePageViewModel(updatedPage));
-            }
-
-            if (!string.IsNullOrEmpty(model.PageName) && _createArticlePageService.TryCreate(model.PageName, model.Parent, out var newPage))
-            {
-                model.CurrentPageId = newPage.ContentLink.ID;
-                if (_updateArticlePageService.TryUpdate(model, out var updatedPage))
+                if(_pageService.TryUpdate(model, out var updatedPage))
                 {
                     return View("Index", new ArticlePageViewModel(updatedPage));
+                }
+            }
+            else
+            {
+                if(_pageService.TryCreate(model.Parent, model, out var createdPage))
+                {
+                    return View("Index", new ArticlePageViewModel(createdPage));
                 }
             }
 

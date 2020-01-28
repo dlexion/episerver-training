@@ -5,7 +5,7 @@ using EPiServer.DataAnnotations;
 
 namespace EpiserverSite.Models.Pages
 {
-    [ContentType(DisplayName = "BasePage", GUID = "29161a88-5823-453c-b4f8-c8826d27fee8", Description = "")]
+    [ContentType(DisplayName = "Base Page", GUID = "29161a88-5823-453c-b4f8-c8826d27fee8", Description = "")]
     public abstract class BasePage : PageData
     {
         [CultureSpecific]
@@ -18,7 +18,7 @@ namespace EpiserverSite.Models.Pages
 
         [CultureSpecific]
         [Display(
-            Name = "OpenGraphTitle",
+            Name = "Open Graph Title",
             Description = "",
             GroupName = SystemTabNames.Content,
             Order = 20)]
@@ -26,7 +26,7 @@ namespace EpiserverSite.Models.Pages
 
         [CultureSpecific]
         [Display(
-            Name = "OpenGraphMedia",
+            Name = "Open Graph Media",
             Description = "",
             GroupName = SystemTabNames.Content,
             Order = 30)]

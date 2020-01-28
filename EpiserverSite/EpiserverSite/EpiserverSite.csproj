@@ -216,23 +216,22 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
-    <Compile Include="Business\CreatePage\CreateArticlePageService.cs" />
-    <Compile Include="Business\CreatePage\CreatePageService.cs" />
-    <Compile Include="Business\CreatePage\ICreatePageService.cs" />
     <Compile Include="Business\Filters\PageContextActionFilter.cs" />
+    <Compile Include="Business\Helpers\ILayoutHelper.cs" />
+    <Compile Include="Business\Helpers\LayoutHelper.cs" />
     <Compile Include="Business\Initialization\CustomTinyMceInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
-    <Compile Include="Business\Initialization\StructureMapSetUp.cs" />
+    <Compile Include="Business\Initialization\StructureMapInitialization.cs" />
+    <Compile Include="Business\Services\ArticlePageService.cs" />
+    <Compile Include="Business\Services\IPageService.cs" />
+    <Compile Include="Business\Services\PageService.cs" />
     <Compile Include="Business\StructureMapDependencyResolver.cs" />
-    <Compile Include="Business\UpdatePage\IUpdatePageService.cs" />
-    <Compile Include="Business\UpdatePage\UpdateArticlePageService.cs" />
-    <Compile Include="Business\UpdatePage\UpdatePageService.cs" />
     <Compile Include="Controllers\ArticlePageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IUpdateModel.cs" />
+    <Compile Include="Models\IUpdateBasePageModel.cs" />
     <Compile Include="Models\Media\DocumentFile.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\MenuItem.cs" />
