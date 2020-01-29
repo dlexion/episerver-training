@@ -13,7 +13,7 @@ namespace EpiserverSite.Models.Pages
             Name = "Main body",
             Description = "",
             GroupName = SystemTabNames.Content,
-            Order = 50)]
+            Order = 40)]
         public virtual XhtmlString MainBody { get; set; }
     }
 }
