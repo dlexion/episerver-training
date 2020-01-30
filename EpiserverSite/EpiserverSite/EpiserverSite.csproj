@@ -216,6 +216,7 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Channels\MobileDisplayChannel.cs" />
     <Compile Include="Business\Filters\PageContextActionFilter.cs" />
     <Compile Include="Business\Helpers\ILayoutHelper.cs" />
     <Compile Include="Business\Helpers\LayoutHelper.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Controllers\ContentPageController.cs" />
     <Compile Include="Controllers\ContentPagePartialController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="Controllers\StartPageMobileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -276,6 +278,7 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\ArticlePage\_AddUpdateArticlePage.cshtml" />
     <Content Include="Views\ContentPage\Index.cshtml" />
+    <Content Include="Views\StartPage\Index.mobile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
