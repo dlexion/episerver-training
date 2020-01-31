@@ -15,5 +15,13 @@ namespace EpiserverSite.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 40)]
         public virtual ContentArea Content { get; set; }
+
+        [CultureSpecific]
+        [Display(
+            Name = "Right Align Content",
+            Description = "",
+            GroupName = SystemTabNames.Content,
+            Order = 50)]
+        public virtual ContentArea RightAlignContext { get; set; }
     }
 }

@@ -12,5 +12,6 @@
     @Html.LabelFor(m => m.CurrentPage.OpenGraphMedia)<br />
     @Html.DisplayFor(m => m.CurrentPage.OpenGraphMedia)<br />
 
-    @Html.PropertyFor(m => m.CurrentPage.Content)
+    @Html.PropertyFor(m => m.CurrentPage.Content)<br />
+    @Html.PropertyFor(m => m.CurrentPage.RightAlignContext, new { Tag = "RightAlign" })
 </div>

@@ -230,6 +230,7 @@
     <Compile Include="Controllers\ArticlePageController.cs" />
     <Compile Include="Controllers\ContentPageController.cs" />
     <Compile Include="Controllers\ContentPagePartialController.cs" />
+    <Compile Include="Controllers\ContentPageRightAlignPartialController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\StartPageMobileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,6 +280,7 @@
     <Content Include="Views\ArticlePage\_AddUpdateArticlePage.cshtml" />
     <Content Include="Views\ContentPage\Index.cshtml" />
     <Content Include="Views\StartPage\Index.mobile.cshtml" />
+    <Content Include="Views\ContentPage\RightAlignIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
