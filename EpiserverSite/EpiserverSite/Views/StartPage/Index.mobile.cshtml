@@ -1,0 +1,18 @@
+﻿@using EPiServer.Web.Mvc.Html
+
+@model EpiserverSite.Models.ViewModels.StartPageViewModel
+
+<div style="text-align: center;">
+    <h3>This is a mobile version!</h3>
+
+    @Html.LabelFor(m => m.CurrentPage.Robots)
+    @Html.PropertyFor(m => m.CurrentPage.Robots)<br/>
+
+    @Html.LabelFor(m => m.CurrentPage.OpenGraphTitle)
+    @Html.PropertyFor(m => m.CurrentPage.OpenGraphTitle)<br/>
+
+    @Html.LabelFor(m => m.CurrentPage.OpenGraphMedia)
+    @Html.DisplayFor(m => m.CurrentPage.OpenGraphMedia)<br/>
+
+    @Html.PropertyFor(m => m.CurrentPage.Content)
+</div>

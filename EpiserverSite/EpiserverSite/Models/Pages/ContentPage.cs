@@ -5,23 +5,22 @@ using EPiServer.DataAnnotations;
 
 namespace EpiserverSite.Models.Pages
 {
-    [ContentType(DisplayName = "Start Page", GUID = "51c59175-13e2-4835-b3b7-d26869c7461c", Description = "")]
-    public class StartPage : BasePage
+    [ContentType(DisplayName = "Content Page", GUID = "d68ffc79-0893-4aa6-96c8-0417ab981386", Description = "")]
+    public class ContentPage : BasePage
     {
-        [CultureSpecific]
         [Display(
-            Name = "Content",
-            Description = "",
+            Name = "Page Title",
+            Description = "Page Title",
             GroupName = SystemTabNames.Content,
             Order = 40)]
-        public virtual ContentArea Content { get; set; }
-
         [CultureSpecific]
+        public virtual string PageTitle { get; set; }
+
         [Display(
-            Name = "Right Align Content",
+            Name = "Main Content Area",
             Description = "",
             GroupName = SystemTabNames.Content,
             Order = 50)]
-        public virtual ContentArea RightAlignContext { get; set; }
+        public virtual ContentArea MainContentArea { get; set; }
     }
 }
