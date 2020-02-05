@@ -1,6 +1,6 @@
 ﻿using EPiServer;
 using EPiServer.ServiceLocation;
-using EpiserverSite.Models;
+using EpiserverSite.Business.Interfaces;
 using EpiserverSite.Models.Pages;
 using EpiserverSite.Models.ViewModels;
 

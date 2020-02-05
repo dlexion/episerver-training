@@ -1,6 +1,6 @@
 ﻿using EPiServer.Core;
 
-namespace EpiserverSite.Models
+namespace EpiserverSite.Business.Interfaces
 {
     public interface IUpdateBasePageModel
     {

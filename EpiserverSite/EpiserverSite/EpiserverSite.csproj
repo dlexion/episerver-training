@@ -223,6 +223,7 @@
     <Compile Include="Business\Initialization\CustomTinyMceInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
     <Compile Include="Business\Initialization\StructureMapInitialization.cs" />
+    <Compile Include="Business\Interfaces\IPreviewableBlock.cs" />
     <Compile Include="Business\Services\ArticlePageService.cs" />
     <Compile Include="Business\Services\IPageService.cs" />
     <Compile Include="Business\Services\PageService.cs" />
@@ -231,12 +232,14 @@
     <Compile Include="Controllers\ContentPageController.cs" />
     <Compile Include="Controllers\ContentPagePartialController.cs" />
     <Compile Include="Controllers\ContentPageRightAlignPartialController.cs" />
+    <Compile Include="Controllers\PreviewController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\StartPageMobileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IUpdateBasePageModel.cs" />
+    <Compile Include="Models\Blocks\TeaserBlock.cs" />
+    <Compile Include="Business\Interfaces\IUpdateBasePageModel.cs" />
     <Compile Include="Models\Media\DocumentFile.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -250,11 +253,11 @@
     <Compile Include="Models\ViewModels\ContentPageViewModel.cs" />
     <Compile Include="Models\ViewModels\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutViewModel.cs" />
+    <Compile Include="Models\ViewModels\PreviewViewModel.cs" />
     <Compile Include="Models\ViewModels\StartPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Blocks\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Static\" />
   </ItemGroup>
@@ -281,6 +284,8 @@
     <Content Include="Views\ContentPage\Index.cshtml" />
     <Content Include="Views\StartPage\Index.mobile.cshtml" />
     <Content Include="Views\ContentPage\RightAlignIndex.cshtml" />
+    <Content Include="Views\Shared\TeaserBlock.cshtml" />
+    <Content Include="Views\Preview\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
