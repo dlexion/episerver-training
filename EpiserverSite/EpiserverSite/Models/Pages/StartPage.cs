@@ -23,7 +23,7 @@ namespace EpiserverSite.Models.Pages
             Description = "",
             GroupName = SystemTabNames.Content,
             Order = 50)]
-        public virtual ContentArea RightAlignContext { get; set; }
+        public virtual ContentArea RightAlignContent { get; set; }
 
         [Display(
             Name = "Teaser Block",
