@@ -2,7 +2,7 @@
 using EPiServer.Core;
 using EPiServer.DataAccess;
 using EPiServer.Security;
-using EpiserverSite.Models;
+using EpiserverSite.Business.Interfaces;
 using EpiserverSite.Models.Pages;
 
 namespace EpiserverSite.Business.Services

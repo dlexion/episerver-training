@@ -1,0 +1,7 @@
+﻿@model EpiserverSite.Models.Blocks.TeaserBlock
+
+<div>
+    <h2>@Html.PropertyFor(x => x.Title)</h2>
+    <p>@Html.PropertyFor(x=>x.Description)</p>
+    <img src="@Url.ContentUrl(Model.Image)" />
+</div>

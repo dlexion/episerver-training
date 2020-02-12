@@ -2,6 +2,7 @@
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EpiserverSite.Models.Blocks;
 
 namespace EpiserverSite.Models.Pages
 {
@@ -22,6 +23,13 @@ namespace EpiserverSite.Models.Pages
             Description = "",
             GroupName = SystemTabNames.Content,
             Order = 50)]
-        public virtual ContentArea RightAlignContext { get; set; }
+        public virtual ContentArea RightAlignContent { get; set; }
+
+        [Display(
+            Name = "Teaser Block",
+            Description = "",
+            GroupName = SystemTabNames.Content,
+            Order = 60)]
+        public virtual TeaserBlock TeaserBlock { get; set; }
     }
 }
