@@ -14,7 +14,7 @@ namespace EpiserverSite.Business.Initialization
         {
             viewTemplateModelRegistrator.Add(typeof(TeaserBlock), new TemplateModel
             {
-                Name = "TeaserBlock",
+                Name = "Teaser Block",
                 AvailableWithoutTag = true,
                 Inherit = false,
                 Path = BlockPath("TeaserBlock.cshtml")
