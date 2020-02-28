@@ -15,6 +15,5 @@ namespace EpiserverSite.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 10)]
         public virtual string Title { get; set; }
-
     }
 }

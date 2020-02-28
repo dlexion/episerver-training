@@ -233,6 +233,7 @@
     <Compile Include="Business\Services\PageService.cs" />
     <Compile Include="Business\StructureMapDependencyResolver.cs" />
     <Compile Include="Controllers\ArticlePageController.cs" />
+    <Compile Include="Controllers\Blocks\PageListBlockController.cs" />
     <Compile Include="Controllers\Blocks\PageListingBlockController.cs" />
     <Compile Include="Controllers\ContentPageController.cs" />
     <Compile Include="Controllers\ContentPagePartialController.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blocks\PageListBlock.cs" />
     <Compile Include="Models\Blocks\PageListingBlock.cs" />
     <Compile Include="Models\Blocks\TeaserBlock.cs" />
     <Compile Include="Business\Interfaces\IUpdateBasePageModel.cs" />
@@ -264,6 +266,7 @@
     <Compile Include="Models\ViewModels\BasePageWithNavigationViewModel.cs" />
     <Compile Include="Models\ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\ViewModels\Blocks\PageListingBlockViewModel.cs" />
+    <Compile Include="Models\ViewModels\Blocks\PageListBlockViewModel.cs" />
     <Compile Include="Models\ViewModels\ContentPageViewModel.cs" />
     <Compile Include="Models\ViewModels\IPageWithNavigationViewModel.cs" />
     <Compile Include="Models\ViewModels\IPageViewModel.cs" />
@@ -307,6 +310,7 @@
     <Content Include="Views\NewsPage\Index.cshtml" />
     <Content Include="Views\Shared\_LeftNavigationLayout.cshtml" />
     <Content Include="Views\NewsItemPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\PageListBlock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
