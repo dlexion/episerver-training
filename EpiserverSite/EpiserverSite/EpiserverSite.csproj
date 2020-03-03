@@ -227,6 +227,7 @@
     <Compile Include="Business\Initialization\StructureMapInitialization.cs" />
     <Compile Include="Business\Initialization\TemplateCoordinator.cs" />
     <Compile Include="Business\Interfaces\IPreviewableBlock.cs" />
+    <Compile Include="Business\Jobs\GetUnpublishedPagesJob.cs" />
     <Compile Include="Business\MyContentAreaRenderer.cs" />
     <Compile Include="Business\Services\ArticlePageService.cs" />
     <Compile Include="Business\Services\IPageService.cs" />
