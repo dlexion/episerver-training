@@ -1,8 +1,8 @@
-﻿using EPiServer.Core;
+﻿using EpiserverSite.Models.Pages;
 
 namespace EpiserverSite.Models.ViewModels
 {
-    public class BaseViewModel<T> : IPageViewModel<T> where T : PageData
+    public class BaseViewModel<T> : IPageViewModel<T> where T : BasePage
     {
         public BaseViewModel(T currentPage)
         {

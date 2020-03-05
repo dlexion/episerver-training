@@ -252,6 +252,7 @@
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Pages\ArticlePage.cs" />
+    <Compile Include="Models\Pages\BaseContentPage.cs" />
     <Compile Include="Models\Pages\BasePage.cs" />
     <Compile Include="Models\Pages\ContentPage.cs" />
     <Compile Include="Models\Pages\NewsItemPage.cs" />

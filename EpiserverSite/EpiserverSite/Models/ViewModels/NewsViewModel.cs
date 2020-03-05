@@ -1,5 +1,4 @@
-﻿using EpiserverSite.Business.Helpers;
-using EpiserverSite.Models.Pages;
+﻿using EpiserverSite.Models.Pages;
 
 namespace EpiserverSite.Models.ViewModels
 {

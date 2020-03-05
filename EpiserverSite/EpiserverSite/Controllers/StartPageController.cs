@@ -11,7 +11,7 @@ namespace EpiserverSite.Controllers
     {
         public ActionResult Index(StartPage currentPage)
         {
-            return View(new StartPageViewModel(currentPage));
+            return View("Index", new StartPageViewModel(currentPage));
         }
     }
 }

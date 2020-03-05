@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
-using EPiServer.Core;
 using EpiserverSite.Business.Helpers;
+using EpiserverSite.Models.Pages;
 using EpiserverSite.Models.ViewModels;
 
 namespace EpiserverSite.Business.Filters
@@ -16,9 +16,7 @@ namespace EpiserverSite.Business.Filters
 
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
-            var layoutModel = filterContext.Controller.ViewData.Model as IPageViewModel<PageData>;
-
-            if (layoutModel != null)
+            if (filterContext.Controller.ViewData.Model is IPageViewModel<BasePage> layoutModel)
             {
                 layoutModel.Layout = _layoutHelper.GenerateLayout();
             }

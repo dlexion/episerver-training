@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EPiServer.Web.Mvc;
 using EpiserverSite.Business.Helpers;
 using EpiserverSite.Models.Blocks;
@@ -15,7 +14,7 @@ namespace EpiserverSite.Controllers.Blocks
             _helper = helper;
         }
 
-		public override ActionResult Index(PageListingBlock currentBlock)
+        public override ActionResult Index(PageListingBlock currentBlock)
         {
             var data = _helper.GetPageChildren(currentBlock.Root);
 
@@ -23,5 +22,5 @@ namespace EpiserverSite.Controllers.Blocks
 
             return PartialView("Blocks/PageListingBlock", currentBlock);
         }
-	}
+    }
 }

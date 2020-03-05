@@ -6,7 +6,7 @@ using EPiServer.DataAnnotations;
 namespace EpiserverSite.Models.Pages
 {
     [ContentType(DisplayName = "Content Page", GUID = "d68ffc79-0893-4aa6-96c8-0417ab981386", Description = "")]
-    public class ContentPage : BasePage
+    public class ContentPage : BaseContentPage
     {
         [Display(
             Name = "Page Title",

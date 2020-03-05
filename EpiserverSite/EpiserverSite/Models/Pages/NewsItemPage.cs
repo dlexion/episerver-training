@@ -15,7 +15,7 @@ namespace EpiserverSite.Models.Pages
             Description = "",
             GroupName = SystemTabNames.Content,
             Order = 10)]
-        public virtual string Title { get; set; }
+        public virtual string ItemTitle { get; set; }
 
         [CultureSpecific]
         [Display(

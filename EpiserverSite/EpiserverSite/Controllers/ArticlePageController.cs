@@ -23,17 +23,17 @@ namespace EpiserverSite.Controllers
 
         [ValidateInput(false)]
         public ActionResult Update(AddUpdateArticlePageViewModel model)
-         {
+        {
             if (model.UpdatePage)
             {
-                if(_pageService.TryUpdate(model, out var updatedPage))
+                if (_pageService.TryUpdate(model, out var updatedPage))
                 {
                     return View("Index", new ArticlePageViewModel(updatedPage));
                 }
             }
             else
             {
-                if(_pageService.TryCreate(model.Parent, model, out var createdPage))
+                if (_pageService.TryCreate(model.Parent, model, out var createdPage))
                 {
                     return View("Index", new ArticlePageViewModel(createdPage));
                 }

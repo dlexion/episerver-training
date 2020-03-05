@@ -15,21 +15,5 @@ namespace EpiserverSite.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 10)]
         public virtual string Robots { get; set; }
-
-        [CultureSpecific]
-        [Display(
-            Name = "Open Graph Title",
-            Description = "",
-            GroupName = SystemTabNames.Content,
-            Order = 20)]
-        public virtual string OpenGraphTitle { get; set; }
-
-        [CultureSpecific]
-        [Display(
-            Name = "Open Graph Media",
-            Description = "",
-            GroupName = SystemTabNames.Content,
-            Order = 30)]
-        public virtual ContentReference OpenGraphMedia { get; set; }
     }
 }
