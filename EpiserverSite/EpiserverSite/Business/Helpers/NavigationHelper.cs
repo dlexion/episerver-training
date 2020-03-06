@@ -22,8 +22,7 @@ namespace EpiserverSite.Business.Helpers
                 return null;
             }
 
-            var pageRef = new PageReference(rootPage);
-            return new PageDataCollection(_contentLoader.GetChildren<BasePage>(pageRef));
+            return new PageDataCollection(_contentLoader.GetChildren<BasePage>(rootPage));
         }
     }
 }
