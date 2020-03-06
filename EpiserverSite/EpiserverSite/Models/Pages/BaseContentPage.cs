@@ -5,7 +5,6 @@ using EPiServer.DataAnnotations;
 
 namespace EpiserverSite.Models.Pages
 {
-    [ContentType(DisplayName = "BaseContentPage", GUID = "97d27f31-774e-48bb-9566-664c518ebbec", Description = "")]
     public abstract class BaseContentPage : BasePage
     {
         [CultureSpecific]
