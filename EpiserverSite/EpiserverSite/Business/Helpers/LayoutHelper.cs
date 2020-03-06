@@ -4,6 +4,7 @@ using EPiServer;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using EpiserverSite.Models;
+using EpiserverSite.Models.Pages;
 using EpiserverSite.Models.ViewModels;
 
 namespace EpiserverSite.Business.Helpers
@@ -20,35 +21,23 @@ namespace EpiserverSite.Business.Helpers
 
         public LayoutViewModel GenerateLayout()
         {
-            var topLevelMenuItems = _contentRepository.GetChildren<PageData>(ContentReference.RootPage)
-                .SkipWhile(x => x.PageTypeName == "SysRecycleBin");
+            var layout = new LayoutViewModel();
 
-            var layout = new LayoutViewModel()
+            var startPage = _contentRepository.Get<BasePage>(ContentReference.StartPage);
+
+            var subPages = _contentRepository.GetChildren<BasePage>(ContentReference.StartPage);
+            List<MenuItem> subItems = subPages
+                .Select(subItem => new MenuItem { Link = subItem.LinkURL, Name = subItem.Name })
+                .ToList();
+
+            var menuItem = new MenuItem
             {
-                MenuItems = new List<MenuItem>()
+                Link = startPage.LinkURL,
+                Name = startPage.Name,
+                SubItems = subItems,
             };
 
-            foreach (var page in topLevelMenuItems)
-            {
-                var menuItem = new MenuItem()
-                {
-                    Link = page.LinkURL,
-                    Name = page.Name
-                };
-
-                var subItems = _contentRepository.GetChildren<PageData>(page.ContentLink);
-
-                foreach (var subItem in subItems)
-                {
-                    menuItem.SubItems.Add(new MenuItem()
-                    {
-                        Link = subItem.LinkURL,
-                        Name = subItem.Name
-                    });
-                }
-
-                layout.MenuItems.Add(menuItem);
-            }
+            layout.MenuItems.Add(menuItem);
 
             return layout;
         }
