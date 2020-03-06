@@ -7,7 +7,7 @@ using EpiserverSite.Models.ViewModels;
 
 namespace EpiserverSite.Controllers
 {
-    [TemplateDescriptor(Tags = new [] { RenderingTags.Mobile })]
+    [TemplateDescriptor(Tags = new[] { RenderingTags.Mobile })]
     public class StartPageMobileController : PageController<StartPage>
     {
         public ActionResult Index(StartPage currentPage)

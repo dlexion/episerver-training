@@ -8,7 +8,7 @@ using EpiserverSite.Models.Pages;
 namespace EpiserverSite.Business.Services
 {
     public class PageService<T, TUpdateModel> : IPageService<T, TUpdateModel>
-        where T : BasePage
+        where T : BaseContentPage
         where TUpdateModel : IUpdateBasePageModel
     {
         private readonly IContentRepository _contentRepository;

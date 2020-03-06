@@ -16,9 +16,7 @@ namespace EpiserverSite.Business.Filters
 
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
-            var layoutModel = filterContext.Controller.ViewData.Model as IPageViewModel<BasePage>;
-
-            if (layoutModel != null)
+            if (filterContext.Controller.ViewData.Model is IPageViewModel<BasePage> layoutModel)
             {
                 layoutModel.Layout = _layoutHelper.GenerateLayout();
             }

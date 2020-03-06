@@ -9,7 +9,7 @@ namespace EpiserverSite.Models.ViewModels
             CurrentPage = currentPage;
         }
 
-        public T CurrentPage { get; private set; }
+        public T CurrentPage { get; }
 
         public LayoutViewModel Layout { get; set; }
     }

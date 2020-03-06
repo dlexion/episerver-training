@@ -1,18 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 
 namespace EpiserverSite.Models.Pages
 {
-    public abstract class BasePage : PageData
+    [AvailableContentTypes(Include = new[] { typeof(NewsItemPage) })]
+    [ContentType(DisplayName = "News Page", GUID = "8ffdf267-72ef-4375-8379-e41fa90a4a4a", Description = "")]
+    public class NewsPage : PageWithNavigation
     {
         [CultureSpecific]
         [Display(
-            Name = "Robots",
+            Name = "Title",
             Description = "",
             GroupName = SystemTabNames.Content,
             Order = 10)]
-        public virtual string Robots { get; set; }
+        public virtual string Title { get; set; }
+
     }
 }

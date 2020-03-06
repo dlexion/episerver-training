@@ -10,7 +10,7 @@
                 <div class="submenu">
                     @foreach (var subItem in item.SubItems)
                     {
-                        <a class="@(Model.CurrentPage.LinkURL == @subItem.Link ? "current" : "")" href="@subItem.Link">@subItem.Name</a>
+                        <a class="@(Model.CurrentPage.LinkURL == @subItem.Link ? "current" : "")" href="@Url.PageUrl(@subItem.Link)">@subItem.Name</a>
                     }
                 </div>
             </li>
