@@ -5,23 +5,26 @@ using EPiServer;
 using EPiServer.Core;
 using EPiServer.PlugIn;
 using EPiServer.Scheduler;
+using EpiserverSite.Models.Pages;
 
 namespace EpiserverSite.Business.Jobs
 {
     [ScheduledPlugIn(DisplayName = "List of unpublished pages")]
     public class GetUnpublishedPagesJob : ScheduledJobBase
     {
-        private readonly IPageCriteriaQueryService _pageCriteriaQueryService;
+        private readonly IContentLoader _contentLoader;
 
-        public GetUnpublishedPagesJob(IPageCriteriaQueryService pageCriteriaQueryService)
+        public GetUnpublishedPagesJob(IContentLoader contentLoader)
         {
-            _pageCriteriaQueryService = pageCriteriaQueryService;
+            _contentLoader = contentLoader;
         }
 
         public override string Execute()
         {
-            var unpublishedPages = DataFactory.Instance.GetDescendents(ContentReference.RootPage)
-                .Select(DataFactory.Instance.Get<PageData>)
+            var descendents = _contentLoader.GetDescendents(ContentReference.RootPage);
+            var unpublishedPages = _contentLoader
+                .GetItems(descendents, new LoaderOptions { LanguageLoaderOption.FallbackWithMaster() })
+                .OfType<BasePage>()
                 .Where(x => x.IsPendingPublish && !x.IsDeleted)
                 .ToList();
 
