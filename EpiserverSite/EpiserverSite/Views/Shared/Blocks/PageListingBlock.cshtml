@@ -1,13 +1,8 @@
-﻿@using EPiServer.Core
-@model EpiserverSite.Models.Blocks.PageListingBlock
+﻿@model EpiserverSite.Models.ViewModels.Blocks.PageListingBlockViewModel
 
-@{
-    var pageCollection = ViewData["PageCollection"] as PageDataCollection;
-}
-
-@if (Model.Root != null && pageCollection != null)
+@if (Model.CurrentBlock.Root != null && Model.Pages != null)
 {
-    foreach (var item in pageCollection)
+    foreach (var item in Model.Pages)
     {
         <a href="@Url.PageUrl(@item.LinkURL)">@item.Name</a>
     }

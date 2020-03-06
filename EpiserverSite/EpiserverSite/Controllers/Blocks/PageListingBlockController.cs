@@ -2,6 +2,7 @@
 using EPiServer.Web.Mvc;
 using EpiserverSite.Business.Helpers;
 using EpiserverSite.Models.Blocks;
+using EpiserverSite.Models.ViewModels.Blocks;
 
 namespace EpiserverSite.Controllers.Blocks
 {
@@ -16,11 +17,9 @@ namespace EpiserverSite.Controllers.Blocks
 
         public override ActionResult Index(PageListingBlock currentBlock)
         {
-            var data = _helper.GetPageChildren(currentBlock.Root);
+            var pages = _helper.GetPageChildren(currentBlock.Root);
 
-            ViewData["PageCollection"] = data;
-
-            return PartialView("Blocks/PageListingBlock", currentBlock);
+            return PartialView("Blocks/PageListingBlock", new PageListingBlockViewModel(currentBlock, pages));
         }
     }
 }
