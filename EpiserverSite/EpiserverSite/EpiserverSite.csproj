@@ -105,6 +105,9 @@
     <Reference Include="EPiServer.Logging.Log4Net, Version=2.2.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Logging.Log4Net.2.2.2\lib\net461\EPiServer.Logging.Log4Net.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.Search.Cms, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Search.Cms.9.0.3\lib\net461\EPiServer.Search.Cms.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.Search.IndexingService, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Search.9.0.3\lib\net461\EPiServer.Search.IndexingService.dll</HintPath>
     </Reference>
@@ -296,6 +299,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IndexingService\IndexingService.svc" />
+    <Content Include="modules\_protected\EPiServer.Search.Cms\IndexContent.aspx" />
     <Content Include="Resources\LanguageFiles\ContentTypeNames.xml" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
@@ -308,6 +312,7 @@
     <Content Include="modules\_protected\Shell\Shell.zip" />
     <Content Include="modules\_protected\CMS\web.config" />
     <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="modules\_protected\EPiServer.Search.Cms\module.config" />
     <None Include="packages.config" />
     <Content Include="Views\StartPage\Index.cshtml" />
     <Content Include="Views\ArticlePage\Index.cshtml" />
