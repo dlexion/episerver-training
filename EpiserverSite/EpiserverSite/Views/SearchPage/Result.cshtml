@@ -1,0 +1,14 @@
+﻿@using EpiserverSite.Models.ViewModels
+@model EpiserverSite.Models.ViewModels.SearchPageViewModel
+
+@Html.Partial("Index", new BaseViewModel<EpiserverSite.Models.Pages.SearchPage>(Model.CurrentPage))
+
+<div id="search-result">
+    <p>Searching for "@Model.SearchText": @Model.TotalHits results found</p>
+    <ul>
+        @foreach (var item in Model.Items)
+        {
+            <li><a href="@Url.ContentUrl(@item.Url)" target="_blank">@item.Name</a></li>
+        }
+    </ul>
+</div>

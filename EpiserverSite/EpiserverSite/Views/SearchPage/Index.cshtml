@@ -1,1 +1,7 @@
 ﻿@model EpiserverSite.Models.ViewModels.BaseViewModel<EpiserverSite.Models.Pages.SearchPage>
+
+@using (Html.BeginForm("Search", "SearchPage"))
+{
+    <input type="text" tabindex="1" name="query" />
+    <input type="submit" tabindex="2" value="Search" />
+}
