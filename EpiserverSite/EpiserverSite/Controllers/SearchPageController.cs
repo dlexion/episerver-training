@@ -14,6 +14,7 @@ namespace EpiserverSite.Controllers
 {
     public class SearchPageController : PageController<SearchPage>
     {
+        private readonly FindService _findService;
         private readonly SearchService _searchService;
         private readonly ContentSearchHandler _contentSearchHandler;
         private readonly IUrlResolver _urlResolver;
@@ -21,10 +22,12 @@ namespace EpiserverSite.Controllers
         private readonly int _maxResults;
 
         public SearchPageController(
+            FindService findService,
             SearchService searchService,
             ContentSearchHandler contentSearchHandler,
             IUrlResolver urlResolver)
         {
+            _findService = findService;
             _searchService = searchService;
             _contentSearchHandler = contentSearchHandler;
             _urlResolver = urlResolver;
@@ -58,6 +61,8 @@ namespace EpiserverSite.Controllers
                     Url = GetUrl(x),
                 }),
             };
+
+            var result2 = _findService.Search(query);
 
             return View("Result", model);
         }

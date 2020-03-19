@@ -273,6 +273,7 @@
     <Compile Include="Business\Jobs\GetUnpublishedPagesJob.cs" />
     <Compile Include="Business\MyContentAreaRenderer.cs" />
     <Compile Include="Business\Services\ArticlePageService.cs" />
+    <Compile Include="Business\Services\FindService.cs" />
     <Compile Include="Business\Services\IPageService.cs" />
     <Compile Include="Business\Services\PageService.cs" />
     <Compile Include="Business\Services\SearchService.cs" />
