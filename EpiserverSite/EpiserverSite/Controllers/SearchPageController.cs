@@ -1,12 +1,8 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EPiServer.Core;
-using EPiServer.Search;
 using EPiServer.Web;
 using EPiServer.Web.Mvc;
-using EPiServer.Web.Routing;
 using EpiserverSite.Business.Services;
-using EpiserverSite.Models;
 using EpiserverSite.Models.Pages;
 using EpiserverSite.Models.ViewModels;
 
@@ -16,21 +12,15 @@ namespace EpiserverSite.Controllers
     {
         private readonly FindService _findService;
         private readonly SearchService _searchService;
-        private readonly ContentSearchHandler _contentSearchHandler;
-        private readonly IUrlResolver _urlResolver;
         private readonly ContentReference[] _roots;
         private readonly int _maxResults;
 
         public SearchPageController(
             FindService findService,
-            SearchService searchService,
-            ContentSearchHandler contentSearchHandler,
-            IUrlResolver urlResolver)
+            SearchService searchService)
         {
             _findService = findService;
             _searchService = searchService;
-            _contentSearchHandler = contentSearchHandler;
-            _urlResolver = urlResolver;
             _roots = new[]
             {
                 SiteDefinition.Current.StartPage,
@@ -54,22 +44,13 @@ namespace EpiserverSite.Controllers
             var model = new SearchPageViewModel(currentPage)
             {
                 SearchText = query,
-                TotalHits = result.TotalHits,
-                Items = result.IndexResponseItems.Select(x => new SearchResult
-                {
-                    Name = x.Title,
-                    Url = GetUrl(x),
-                }),
+                TotalHits = result.Count,
+                Items = result,
             };
 
-            var result2 = _findService.Search(query);
+            var result2 = _findService.Search(query, currentPage.Language?.Name, _maxResults);
 
             return View("Result", model);
-        }
-
-        private string GetUrl(IndexResponseItem item)
-        {
-            return _urlResolver.GetUrl(_contentSearchHandler.GetContent<IContent>(item).ContentLink);
         }
     }
 }

@@ -19,11 +19,13 @@ namespace EpiserverSite.Business.Services
             _urlResolver = urlResolver;
         }
 
-        public IEnumerable<SearchResult> Search(string query)
+        public IEnumerable<SearchResult> Search(string query, string languageBranch, int maxResults)
         {
             var foundPages = _client.Search<IContent>()
                 .For(query)
+                .InLanguageBranch(languageBranch)
                 .FilterForVisitor()
+                .Take(maxResults)
                 .GetContentResult();
 
             var result = foundPages.Items
