@@ -39,16 +39,24 @@ namespace EpiserverSite.Controllers
         [HttpPost]
         public ActionResult Search(SearchPage currentPage, string query)
         {
-            var result = _searchService.Search(query, _roots, HttpContext, currentPage.Language?.Name, _maxResults);
+            var model = new CombinedSearchResultViewModel(currentPage);
 
-            var model = new SearchPageViewModel(currentPage)
+            var searchResult = _searchService.Search(query, _roots, HttpContext, currentPage.Language?.Name, _maxResults);
+            var findResult = _findService.Search(query, currentPage.Language?.Name, _maxResults);
+
+            model.SearchItems = new SearchPageViewModel
             {
+                TotalHits = searchResult.Count,
+                Items = searchResult,
                 SearchText = query,
-                TotalHits = result.Count,
-                Items = result,
             };
 
-            var result2 = _findService.Search(query, currentPage.Language?.Name, _maxResults);
+            model.FindItems = new SearchPageViewModel
+            {
+                TotalHits = findResult.Count,
+                Items = findResult,
+                SearchText = query,
+            };
 
             return View("Result", model);
         }

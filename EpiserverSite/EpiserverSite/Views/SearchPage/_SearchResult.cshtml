@@ -1,0 +1,9 @@
+﻿@model EpiserverSite.Models.ViewModels.SearchPageViewModel
+
+<p>Searching for "@Model.SearchText": @Model.TotalHits results found</p>
+<ul>
+    @foreach (var item in Model.Items)
+    {
+        <li><a href="@Url.ContentUrl(@item.Url)" target="_blank">@item.Name</a></li>
+    }
+</ul>

@@ -1,14 +1,24 @@
 ﻿@using EpiserverSite.Models.ViewModels
-@model EpiserverSite.Models.ViewModels.SearchPageViewModel
+@model CombinedSearchResultViewModel
+
+<style>
+    .search-result {
+        display: inline-block;
+        float: left;
+        margin: 10px;
+        width: calc(50% - 20px);
+    }
+</style>
 
 @Html.Partial("Index", new BaseViewModel<EpiserverSite.Models.Pages.SearchPage>(Model.CurrentPage))
 
-<div id="search-result">
-    <p>Searching for "@Model.SearchText": @Model.TotalHits results found</p>
-    <ul>
-        @foreach (var item in Model.Items)
-        {
-            <li><a href="@Url.ContentUrl(@item.Url)" target="_blank">@item.Name</a></li>
-        }
-    </ul>
+<div id="search-result-container">
+    <div class="search-result">
+        <h2>Episerver.Search</h2>
+        @Html.Partial("_SearchResult", Model.SearchItems)
+    </div>
+    <div class="search-result">
+        <h2>Episerver.Find</h2>
+        @Html.Partial("_SearchResult", Model.FindItems)
+    </div>
 </div>
