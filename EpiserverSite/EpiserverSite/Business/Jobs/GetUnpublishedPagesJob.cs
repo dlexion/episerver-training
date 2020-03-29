@@ -13,9 +13,11 @@ namespace EpiserverSite.Business.Jobs
     public class GetUnpublishedPagesJob : ScheduledJobBase
     {
         private readonly IContentLoader _contentLoader;
+        private bool _stopSignaled;
 
         public GetUnpublishedPagesJob(IContentLoader contentLoader)
         {
+            IsStoppable = true;
             _contentLoader = contentLoader;
         }
 
@@ -31,16 +33,28 @@ namespace EpiserverSite.Business.Jobs
             StringBuilder sb = new StringBuilder();
             sb.Append(unpublishedPages.Count).AppendLine(" unpublished page(s) was(were) found.");
 
-            if (unpublishedPages.Count > 0)
+            if (unpublishedPages.Any())
             {
                 sb.AppendLine("List of unpublished pages:");
                 foreach (var unpublishedPage in unpublishedPages)
                 {
+                    if (_stopSignaled)
+                    {
+                        sb.AppendLine("The job was stopped.");
+                        break;
+                    }
+
                     sb.Append(" - ").AppendLine(unpublishedPage.PageName);
                 }
             }
 
-            return sb.ToString().Replace(Environment.NewLine, "<br/>"); ;
+            return sb.ToString().Replace(Environment.NewLine, "<br/>");
+        }
+
+        public override void Stop()
+        {
+            _stopSignaled = true;
+            base.Stop();
         }
     }
 }
