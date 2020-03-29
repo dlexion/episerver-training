@@ -3,13 +3,19 @@ using System.Linq;
 using System.Text;
 using EPiServer;
 using EPiServer.Core;
+using EPiServer.DataAbstraction;
 using EPiServer.PlugIn;
 using EPiServer.Scheduler;
 using EpiserverSite.Models.Pages;
 
 namespace EpiserverSite.Business.Jobs
 {
-    [ScheduledPlugIn(DisplayName = "List of unpublished pages")]
+    [ScheduledPlugIn(
+        DisplayName = "List of unpublished pages",
+        DefaultEnabled = true,
+        IntervalType = ScheduledIntervalType.Months,
+        IntervalLength = 1,
+        InitialTime = "2:0:0")]
     public class GetUnpublishedPagesJob : ScheduledJobBase
     {
         private readonly IContentLoader _contentLoader;
