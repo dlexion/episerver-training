@@ -259,6 +259,8 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="AdminTools\MyPlugin\Controllers\MyPluginController.cs" />
+    <Compile Include="AdminTools\MyPlugin\Models\MyPluginViewModel.cs" />
     <Compile Include="Business\Channels\MobileDisplayChannel.cs" />
     <Compile Include="Business\Extensions\FilterForPageAndMedia.cs" />
     <Compile Include="Business\Extensions\FilterForVisitorExtension.cs" />
@@ -267,6 +269,7 @@
     <Compile Include="Business\Helpers\INavigationHelper.cs" />
     <Compile Include="Business\Helpers\LayoutHelper.cs" />
     <Compile Include="Business\Helpers\NavigationHelper.cs" />
+    <Compile Include="Business\Initialization\CustomRouteInitialization.cs" />
     <Compile Include="Business\Initialization\CustomTinyMceInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
     <Compile Include="Business\Initialization\FindInitialization.cs" />
@@ -343,6 +346,9 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="App_Data\GeoLiteCity.dat" />
+    <Content Include="AdminTools\MyPlugin\Views\Index.cshtml" />
+    <Content Include="AdminTools\SharedViews\_Layout.cshtml" />
+    <Content Include="AdminTools\Web.config" />
     <None Include="EPiServerLog.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
