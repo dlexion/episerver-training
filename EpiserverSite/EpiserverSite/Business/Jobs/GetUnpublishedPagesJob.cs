@@ -60,7 +60,6 @@ namespace EpiserverSite.Business.Jobs
         public override void Stop()
         {
             _stopSignaled = true;
-            base.Stop();
         }
     }
 }
