@@ -10,10 +10,16 @@ namespace EpiserverSite.Controllers
 {
     public class SearchPageController : PageController<SearchPage>
     {
+        private const int MaxResults = 10;
+        private static readonly ContentReference[] Roots =
+        {
+            SiteDefinition.Current.StartPage,
+            SiteDefinition.Current.GlobalAssetsRoot,
+            SiteDefinition.Current.SiteAssetsRoot
+        };
+
         private readonly FindService _findService;
         private readonly SearchService _searchService;
-        private readonly ContentReference[] _roots;
-        private readonly int _maxResults;
 
         public SearchPageController(
             FindService findService,
@@ -21,13 +27,6 @@ namespace EpiserverSite.Controllers
         {
             _findService = findService;
             _searchService = searchService;
-            _roots = new[]
-            {
-                SiteDefinition.Current.StartPage,
-                SiteDefinition.Current.GlobalAssetsRoot,
-                SiteDefinition.Current.SiteAssetsRoot
-            };
-            _maxResults = 10;
         }
 
         [HttpGet]
@@ -41,8 +40,8 @@ namespace EpiserverSite.Controllers
         {
             var model = new CombinedSearchResultViewModel(currentPage);
 
-            var searchResult = _searchService.Search(query, _roots, HttpContext, currentPage.Language?.Name, _maxResults);
-            var findResult = _findService.Search(query, currentPage.Language?.Name, _maxResults);
+            var searchResult = _searchService.Search(query, Roots, HttpContext, currentPage.Language?.Name, MaxResults);
+            var findResult = _findService.Search(query, currentPage.Language?.Name, MaxResults);
 
             model.SearchItems = new SearchPageViewModel
             {
