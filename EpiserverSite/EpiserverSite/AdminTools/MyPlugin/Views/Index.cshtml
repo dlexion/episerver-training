@@ -1,7 +1,17 @@
-﻿@model EpiserverSite.AdminTools.MyPlugin.Models.MyPluginViewModel
+﻿@using EPiServer.Framework.Web.Resources
+@using EPiServer.Shell
+@model EpiserverSite.AdminTools.MyPlugin.Models.MyPluginViewModel
 
 @{
     Layout = "../../SharedViews/_Layout.cshtml";
+    //Layout = null;
+    //ClientResources.RequireStyle("EPiServer/Shell/11.21.3/ClientResources/epi/themes/sleek/sleek1.css").AtHeader();
+    //ClientResources.RequireStyle("/EPiServer/Shell/11.21.3/ClientResources/epi/themes/sleek/sleek1.css").AtHeader();
+    //ClientResources.RequireStyle("ClientResources/epi/themes/sleek/sleek1.css").AtHeader();
+    //ClientResources.RequireStyle(Paths.ToShellClientResource("EPiServer/Shell/11.21.3/ClientResources/epi/themes/sleek/sleek1.css")).AtHeader();
+    //ClientResources.RequireStyle(Paths.ToShellClientResource("/EPiServer/Shell/11.21.3/ClientResources/epi/themes/sleek/sleek1.css")).AtHeader();
+    //ClientResources.RequireStyle(Paths.ToShellClientResource("ClientResources/epi/themes/sleek/sleek1.css")).AtHeader();
+    //ClientResources.RequireStyle(Html.ShellCssLink("ClientResources/epi/themes/sleek/sleek1.css")).AtHeader();
 }
 
 <p>@Model.Text</p>

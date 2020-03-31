@@ -1,8 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using EPiServer.Framework.Web.Resources
+@using EPiServer.Shell
+<!DOCTYPE html>
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/EPiServer/Shell/11.21.3/ClientResources/epi/themes/sleek/sleek1.css" />
+    @*<link rel="stylesheet" type="text/css" href="/EPiServer/Shell/11.21.3/ClientResources/epi/themes/sleek/sleek1.css" />*@
+    @*@Html.Raw(ClientResources.RequireStyle(Paths.ToShellClientResource("ClientResources/epi/themes/sleek/sleek1.css")))*@
+    @Html.Raw(Html.ShellCssLink("ClientResources/epi/themes/sleek/sleek1.css"))
 </head>
 
 <body>
