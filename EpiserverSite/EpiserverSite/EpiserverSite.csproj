@@ -260,6 +260,8 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Business\Channels\MobileDisplayChannel.cs" />
+    <Compile Include="Business\Extensions\FilterForPageAndMedia.cs" />
+    <Compile Include="Business\Extensions\FilterForVisitorExtension.cs" />
     <Compile Include="Business\Filters\PageContextActionFilter.cs" />
     <Compile Include="Business\Helpers\ILayoutHelper.cs" />
     <Compile Include="Business\Helpers\INavigationHelper.cs" />
@@ -267,6 +269,7 @@
     <Compile Include="Business\Helpers\NavigationHelper.cs" />
     <Compile Include="Business\Initialization\CustomTinyMceInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
+    <Compile Include="Business\Initialization\FindInitialization.cs" />
     <Compile Include="Business\Initialization\StructureMapInitialization.cs" />
     <Compile Include="Business\Initialization\TemplateCoordinator.cs" />
     <Compile Include="Business\Interfaces\IPreviewableBlock.cs" />
