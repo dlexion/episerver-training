@@ -14,6 +14,11 @@ namespace EpiserverSite.Business.Initialization
                 null,
                 "custom-plugins/my-plugin",
                 new { controller = "MyPlugin", action = "Index" });
+
+            RouteTable.Routes.MapRoute(
+                "ExistingPagesReport",
+                "existing-pages-report/{action}",
+                new { controller = "ExistingPagesReport", action = "Index" });
         }
 
         public void Uninitialize(InitializationEngine context)
