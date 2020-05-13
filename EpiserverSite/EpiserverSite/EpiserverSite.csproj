@@ -325,6 +325,7 @@
     <Compile Include="Models\Pages\SearchPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\SearchResult.cs" />
+    <Compile Include="Models\SystemTabNames.cs" />
     <Compile Include="Models\ViewModels\AddUpdateArticlePageViewModel.cs" />
     <Compile Include="Models\ViewModels\ArticlePageViewModel.cs" />
     <Compile Include="Models\ViewModels\BasePageWithNavigationViewModel.cs" />

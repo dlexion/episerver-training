@@ -12,6 +12,18 @@
         <red-header>Warning Heading</red-header>
       </editorstyles>
     </tinymce>
+    <contenttypes>
+      <icontentdata>
+        <properties>
+          <robots>
+            <caption>Robots</caption>
+          </robots>
+        </properties>
+      </icontentdata>
+    </contenttypes>
+    <groups>
+      <content>Content</content>
+    </groups>
   </language>
   <language name="svenska" id="sv">
     <tinymce>
@@ -25,5 +37,17 @@
         <red-header>Varningsrubrik</red-header>
       </editorstyles>
     </tinymce>
+    <contenttypes>
+      <icontentdata>
+        <properties>
+          <robots>
+            <caption>Robotar</caption>
+          </robots>
+        </properties>
+      </icontentdata>
+    </contenttypes>
+    <groups>
+      <content>Grupper</content>
+    </groups>
   </language>
 </languages>
