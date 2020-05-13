@@ -14,5 +14,8 @@ namespace EpiserverSite.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 10)]
         public virtual string Robots { get; set; }
+
+        [Display(GroupName = SystemTabNames.Content)]
+        public override CategoryList Category { get => base.Category; set => base.Category = value; }
     }
 }
