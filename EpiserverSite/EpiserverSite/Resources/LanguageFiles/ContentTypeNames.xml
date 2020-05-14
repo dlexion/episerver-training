@@ -22,8 +22,10 @@
       </icontentdata>
     </contenttypes>
     <groups>
-      <content>Content XML</content>
+      <content>Content</content>
     </groups>
+    <displayname>List of unpublished pages</displayname>
+    <description>Get all unpublished pages</description>
   </language>
   <language name="svenska" id="sv">
     <tinymce>
@@ -49,5 +51,7 @@
     <groups>
       <content>Grupper</content>
     </groups>
+    <displayname>Lista med opublicerade sidor</displayname>
+    <description>Få alla opublicerade sidor</description>
   </language>
 </languages>
