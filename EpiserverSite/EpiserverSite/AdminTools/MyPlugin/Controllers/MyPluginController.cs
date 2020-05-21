@@ -6,7 +6,7 @@ namespace EpiserverSite.AdminTools.MyPlugin.Controllers
 {
     [GuiPlugIn(
         Area = PlugInArea.AdminMenu,
-        Url = "/custom-plugins/my-plugin",
+        Url = "/plugins/MyPlugin",
         DisplayName = "My Plugin")]
     [Authorize(Roles = "WebAdmins")]
     public class MyPluginController : Controller

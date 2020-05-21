@@ -11,7 +11,6 @@ namespace EpiserverSite.AdminTools.ExistingPagesReport.Controllers
 {
     [EPiServer.PlugIn.GuiPlugIn(
         Area = EPiServer.PlugIn.PlugInArea.ReportMenu,
-        Url = "~/existing-pages-report",
         Category = "Existing Pages",
         DisplayName = "Pages By PageType")]
     [Authorize(Roles = "WebAdmins")]
