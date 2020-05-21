@@ -4,6 +4,7 @@ using EPiServer.Framework.Initialization;
 using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EpiserverSite.Business.Initialization
@@ -12,6 +13,9 @@ namespace EpiserverSite.Business.Initialization
     public class TabSortOrder : IInitializableModule
     {
         private readonly Injected<ITabDefinitionRepository> _tabDefinitionRepository;
+
+        private IList<TabDefinition> _definedTabs = null;
+
 
         public void Initialize(InitializationEngine context)
         {
@@ -34,13 +38,18 @@ namespace EpiserverSite.Business.Initialization
                 definition.ID = existingTab.ID;
             }
 
+            _definedTabs.Add(definition);
             _tabDefinitionRepository.Service.Save(definition);
         }
 
         private TabDefinition GetExistingTabDefinition(TabDefinition definition)
         {
-            return _tabDefinitionRepository.Service.List()
-                   .FirstOrDefault(t => t.Name.Equals(definition.Name, StringComparison.InvariantCultureIgnoreCase));
+            if (_definedTabs == null)
+            {
+                _definedTabs = _tabDefinitionRepository.Service.List().ToList();
+            }
+
+            return _definedTabs.FirstOrDefault(t => t.Name.Equals(definition.Name, StringComparison.InvariantCultureIgnoreCase));
         }
 
         public void Uninitialize(InitializationEngine context)
