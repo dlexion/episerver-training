@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EPiServer;
+using EPiServer.Cms.Shell;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.PlugIn;
@@ -20,23 +22,18 @@ namespace EpiserverSite.Business.Jobs
         LanguagePath = "/plugin/job/UnpublishedPages")]
     public class GetUnpublishedPagesJob : ScheduledJobBase
     {
-        private readonly IContentLoader _contentLoader;
+        private readonly IContentRepository _contentRepository;
         private bool _stopSignaled;
 
-        public GetUnpublishedPagesJob(IContentLoader contentLoader)
+        public GetUnpublishedPagesJob(IContentRepository contentRepository)
         {
             IsStoppable = true;
-            _contentLoader = contentLoader;
+            _contentRepository = contentRepository;
         }
 
         public override string Execute()
         {
-            var descendents = _contentLoader.GetDescendents(ContentReference.RootPage);
-            var unpublishedPages = _contentLoader
-                .GetItems(descendents, new LoaderOptions { LanguageLoaderOption.FallbackWithMaster() })
-                .OfType<BasePage>()
-                .Where(x => x.IsPendingPublish && !x.IsDeleted)
-                .ToList();
+            var unpublishedPages = GetUnpublishedPages();
 
             StringBuilder sb = new StringBuilder();
             sb.Append(unpublishedPages.Count).AppendLine(" unpublished page(s) was(were) found.");
@@ -52,7 +49,7 @@ namespace EpiserverSite.Business.Jobs
                         break;
                     }
 
-                    sb.Append(" - ").AppendLine(unpublishedPage.PageName);
+                    sb.Append(" - ").AppendLine(unpublishedPage.PageName + "; language: " + unpublishedPage.LanguageBranch());
                 }
             }
 
@@ -62,6 +59,24 @@ namespace EpiserverSite.Business.Jobs
         public override void Stop()
         {
             _stopSignaled = true;
+        }
+
+        private List<BasePage> GetUnpublishedPages()
+        {
+            var unpublishedPages = new List<BasePage>();
+
+            foreach (var descendent in _contentRepository.GetDescendents(ContentReference.StartPage))
+            {
+                foreach (var content in _contentRepository.GetLanguageBranches<IContent>(descendent).ToList())
+                {
+                    if (content is BasePage page && page.IsPendingPublish && !page.IsDeleted)
+                    {
+                        unpublishedPages.Add(page);
+                    }
+                }
+            }
+
+            return unpublishedPages;
         }
     }
 }
