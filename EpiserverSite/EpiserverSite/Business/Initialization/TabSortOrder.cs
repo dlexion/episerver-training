@@ -11,7 +11,7 @@ namespace EpiserverSite.Business.Initialization
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     public class TabSortOrder : IInitializableModule
     {
-        private Injected<ITabDefinitionRepository> _tabDefinitionRepository;
+        private readonly Injected<ITabDefinitionRepository> _tabDefinitionRepository;
 
         public void Initialize(InitializationEngine context)
         {
@@ -20,28 +20,26 @@ namespace EpiserverSite.Business.Initialization
 
         private void RegisterTabs()
         {
-            AddTabToList(_tabDefinitionRepository.Service,
-                new TabDefinition() { Name = "SEO", RequiredAccess = AccessLevel.Edit, SortIndex = 28 });
+            AddTabToList(new TabDefinition() { Name = "SEO", RequiredAccess = AccessLevel.Edit, SortIndex = 28 });
 
-            AddTabToList(_tabDefinitionRepository.Service,
-                new TabDefinition() { Name = "Content", RequiredAccess = AccessLevel.Edit, SortIndex = 10000 });
+            AddTabToList(new TabDefinition() { Name = "Content", RequiredAccess = AccessLevel.Edit, SortIndex = 10000 });
         }
 
-        private void AddTabToList(ITabDefinitionRepository tabDefinitionRepository, TabDefinition definition)
+        private void AddTabToList(TabDefinition definition)
         {
-            TabDefinition existingTab = GetExistingTabDefinition(tabDefinitionRepository, definition);
+            var existingTab = GetExistingTabDefinition(definition);
 
             if (existingTab != null)
             {
                 definition.ID = existingTab.ID;
             }
 
-            tabDefinitionRepository.Save(definition);
+            _tabDefinitionRepository.Service.Save(definition);
         }
 
-        private static TabDefinition GetExistingTabDefinition(ITabDefinitionRepository tabDefinitionRepository, TabDefinition definition)
+        private TabDefinition GetExistingTabDefinition(TabDefinition definition)
         {
-            return tabDefinitionRepository.List()
+            return _tabDefinitionRepository.Service.List()
                    .FirstOrDefault(t => t.Name.Equals(definition.Name, StringComparison.InvariantCultureIgnoreCase));
         }
 
