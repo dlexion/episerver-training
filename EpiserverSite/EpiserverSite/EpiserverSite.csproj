@@ -147,6 +147,9 @@
     <Reference Include="EPiServer.Web.WebControls, Version=11.12.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.12.0\lib\net461\EPiServer.Web.WebControls.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=5.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.0.4\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -163,6 +166,7 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="StructureMap, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.4.5.2\lib\net45\StructureMap.dll</HintPath>
     </Reference>
@@ -198,6 +202,7 @@
     <Reference Include="System.Threading.AccessControl, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.AccessControl.4.4.0\lib\net461\System.Threading.AccessControl.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
     </Reference>
@@ -259,20 +264,30 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="AdminTools\ExistingPagesReport\Controllers\ExistingPagesReportController.cs" />
+    <Compile Include="AdminTools\ExistingPagesReport\Models\ExistingPagesReportViewModel.cs" />
+    <Compile Include="AdminTools\MyPlugin\Controllers\MyPluginController.cs" />
+    <Compile Include="AdminTools\MyPlugin\Models\MyPluginViewModel.cs" />
     <Compile Include="Business\Channels\MobileDisplayChannel.cs" />
     <Compile Include="Business\Extensions\FilterForPageAndMedia.cs" />
     <Compile Include="Business\Extensions\FilterForVisitorExtension.cs" />
     <Compile Include="Business\Filters\PageContextActionFilter.cs" />
     <Compile Include="Business\Helpers\ILayoutHelper.cs" />
     <Compile Include="Business\Helpers\INavigationHelper.cs" />
+    <Compile Include="Business\Helpers\IPageHelper.cs" />
     <Compile Include="Business\Helpers\LayoutHelper.cs" />
     <Compile Include="Business\Helpers\NavigationHelper.cs" />
+    <Compile Include="Business\Helpers\PageHelper.cs" />
+    <Compile Include="Business\Initialization\CustomRouteInitialization.cs" />
     <Compile Include="Business\Initialization\CustomTinyMceInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
     <Compile Include="Business\Initialization\FindInitialization.cs" />
+    <Compile Include="Business\Initialization\NewsPageUIDescriptorModule .cs" />
     <Compile Include="Business\Initialization\StructureMapInitialization.cs" />
+    <Compile Include="Business\Initialization\TabSortOrder.cs" />
     <Compile Include="Business\Initialization\TemplateCoordinator.cs" />
     <Compile Include="Business\Interfaces\IPreviewableBlock.cs" />
+    <Compile Include="Business\Interfaces\IUseCategoryTreeIcon.cs" />
     <Compile Include="Business\Jobs\GetUnpublishedPagesJob.cs" />
     <Compile Include="Business\MyContentAreaRenderer.cs" />
     <Compile Include="Business\Services\ArticlePageService.cs" />
@@ -313,6 +328,7 @@
     <Compile Include="Models\Pages\SearchPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\SearchResult.cs" />
+    <Compile Include="Models\SystemTabNames.cs" />
     <Compile Include="Models\ViewModels\AddUpdateArticlePageViewModel.cs" />
     <Compile Include="Models\ViewModels\ArticlePageViewModel.cs" />
     <Compile Include="Models\ViewModels\BasePageWithNavigationViewModel.cs" />
@@ -343,6 +359,10 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="App_Data\GeoLiteCity.dat" />
+    <Content Include="AdminTools\MyPlugin\Views\Index.cshtml" />
+    <Content Include="AdminTools\SharedViews\_Layout.cshtml" />
+    <Content Include="AdminTools\Web.config" />
+    <Content Include="AdminTools\ExistingPagesReport\Views\Index.cshtml" />
     <None Include="EPiServerLog.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />

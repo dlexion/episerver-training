@@ -12,6 +12,26 @@
         <red-header>Warning Heading</red-header>
       </editorstyles>
     </tinymce>
+    <contenttypes>
+      <icontentdata>
+        <properties>
+          <robots>
+            <caption>Robots</caption>
+          </robots>
+        </properties>
+      </icontentdata>
+    </contenttypes>
+    <groups>
+      <content>Content</content>
+    </groups>
+    <plugin>
+      <job>
+        <UnpublishedPages>
+          <displayname>List of unpublished pages</displayname>
+          <description>Get all unpublished pages</description>
+        </UnpublishedPages>
+      </job>
+    </plugin>
   </language>
   <language name="svenska" id="sv">
     <tinymce>
@@ -25,5 +45,25 @@
         <red-header>Varningsrubrik</red-header>
       </editorstyles>
     </tinymce>
+    <contenttypes>
+      <icontentdata>
+        <properties>
+          <robots>
+            <caption>Robotar</caption>
+          </robots>
+        </properties>
+      </icontentdata>
+    </contenttypes>
+    <groups>
+      <content>Grupper</content>
+    </groups>
+    <plugin>
+      <job>
+        <UnpublishedPages>
+          <displayname>Lista med opublicerade sidor</displayname>
+          <description>Få alla opublicerade sidor</description>
+        </UnpublishedPages>
+      </job>
+    </plugin>
   </language>
 </languages>
