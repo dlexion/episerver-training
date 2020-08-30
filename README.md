@@ -6,36 +6,36 @@ Episerver Development Fundumentals learning path
 
 ## Agenda
 
-- Module 1 - Getting Started
-  - Extension for Visual Studio
-  - Installing Alloy MVC site
-  - Learn basic editing
-- Module 2 - Pages, content types and properties
-  - Create a starter project
-  - Media types and templates
-  - Customizing the TinyMCE editor
-  - Navigation
-  - Create a page programmatically
-- Module 3 - Rendering
-  - Create a partial template for the pages
-  - Create Display Channel for Mobile
-  - Tag the partial template to only render in tagged content area
-- Module 4 - Blocks
-  - Create a Preview Renderer for Blocks
-  - Create a Teaser Block
-  - Use a Block as a property
-- Module 5 - Listing & Menu Controls
-  - Create a Page Listing Block
-  - Create News Page & News Items
-- Module 6 - Search & Filter
-  - Full-text search
-  - Search by page properties
-- Module 7 - Administration tools
-  - Create new administrator user]
-  - Scheduled jobs
-  - Create Admin Plugin
-  - Create custom report
-  - Administration UI
+- [Module 1 - Getting Started](#module-a---getting-started)
+  - [Extension for Visual Studio](#extension-for-visual-studio)
+  - [Installing Alloy MVC site](#installing-alloy-mvc-site)
+  - [Learn basic editing](#learn-basic-editing)
+- [Module 2 - Pages, content types and properties](#module-b---pages-content-types-and-properties)
+  - [Create a starter project](#create-a-starter-project)
+  - [Media types and templates](#media-types-and-templates)
+  - [Customizing the TinyMCE editor](#customizing-the-tinymce-editor)
+  - [Navigation](#navigation)
+  - [Create a page programmatically](#create-a-page-programmatically)
+- [Module 3 - Rendering](#module-c---rendering)
+  - [Create a partial template for the pages](#create-a-partial-template-for-the-pages)
+  - [Create Display Channel for Mobile](#create-display-channel-for-mobile)
+  - [Tag the partial template to only render in tagged content area](#tag-the-partial-template-to-only-render-in-tagged-content-area)
+- [Module 4 - Blocks](#module-d---blocks)
+  - [Create a Teaser Block](#create-a-teaser-block)
+  - [Create a Preview Renderer for Blocks](#create-a-preview-renderer-for-blocks)
+  - [Use a Block as a property](#use-a-block-as-a-property)
+- [Module 5 - Listing & Menu Controls](#module-e---listing--menu-controls)
+  - [Create a Page Listing Block](#create-a-page-listing-block)
+  - [Create News Page & News Items](#create-news-page--news-items)
+- [Module 6 - Search & Filter](#module-f---search--filter)
+  - [Search by page properties](#search-by-page-properties)
+  - [Full-text search](#full-text-search)
+- [Module 7 - Administration tools](#module-g---administration-tools)
+  - [Create new administrator user](#create-new-administrator-user)
+  - [Scheduled jobs](#scheduled-jobs)
+  - [Create Admin Plugin](#create-admin-plugin)
+  - [Create custom report](#create-custom-report)
+  - [Administration UI](#administration-ui)
 
 ---
 
