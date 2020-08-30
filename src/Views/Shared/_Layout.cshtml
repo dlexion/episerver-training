@@ -1,0 +1,36 @@
+﻿@model EpiserverSite.Models.ViewModels.IPageViewModel<EpiserverSite.Models.Pages.BasePage>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        #header ul li {
+            display: inline-block;
+            vertical-align: top;
+            padding-right: 20px;
+        }
+
+        div.submenu {
+            display: grid;
+        }
+
+        a, a:visited {
+            color: #0000EE;
+        }
+
+        a.current {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @Html.RenderEPiServerQuickNavigator()
+
+        @Html.Partial("_Header", Model)
+        @RenderBody()
+    </div>
+</body>
+</html>

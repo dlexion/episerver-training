@@ -357,4 +357,7 @@ MigrationBackup/
 ######################
 *License.config
 
+# Local settings
 [Aa]pp_[Dd]ata/
+EpiserverSite.sln.DotSettings.user
+.vscode/

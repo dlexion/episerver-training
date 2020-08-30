@@ -1,0 +1,19 @@
+﻿@using EPiServer.Web.Mvc.Html
+
+@model EpiserverSite.Models.ViewModels.ArticlePageViewModel
+
+<div>
+    @Html.LabelFor(m => m.CurrentPage.Robots)<br />
+    @Html.PropertyFor(m => m.CurrentPage.Robots)<br />
+
+    @Html.LabelFor(m => m.CurrentPage.OpenGraphTitle)<br />
+    @Html.PropertyFor(m => m.CurrentPage.OpenGraphTitle)<br />
+
+    @Html.LabelFor(m => m.CurrentPage.OpenGraphMedia)<br />
+    @Html.DisplayFor(m => m.CurrentPage.OpenGraphMedia)<br />
+
+    @Html.LabelFor(m => m.CurrentPage.MainBody)<br />
+    @Html.PropertyFor(m => m.CurrentPage.MainBody)<br />
+
+    @Html.Partial("_AddUpdateArticlePage", Model.UpdateModel)
+</div>
