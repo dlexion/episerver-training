@@ -1,6 +1,6 @@
 # Episerver - training
 
-Episerver Development Fundumentals learning path
+Episerver Development Fundamentals learning path
 
 ---
 
